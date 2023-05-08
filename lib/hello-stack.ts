@@ -52,7 +52,7 @@ export class HelloStack extends Stack {
     // Lambda to add
     const lambdaFunctionAdd = new lambda.NodejsFunction(this, "InsertMarketoDynamoLambdaFunction", {
       runtime: Runtime.NODEJS_16_X,
-      entry: path.join(__dirname, `/../insert-marketo-info-lambda/insert-marketo-info.ts`),
+      entry: path.join(__dirname, `/../lambdas/insert-marketo-info.ts`),
       handler: 'handler',
       environment: {
         TABLE_NAME: table.tableName
@@ -62,7 +62,7 @@ export class HelloStack extends Stack {
     // Read function
     const lambdaFunctionRead = new lambda.NodejsFunction(this, "ReadMarketoDynamoLambdaFunction", {
       runtime: Runtime.NODEJS_16_X,
-      entry: path.join(__dirname, `/../insert-marketo-info-lambda/read-marketo-data.ts`),
+      entry: path.join(__dirname, `/../lambdas/read-marketo-data.ts`),
       handler: 'handler',
       environment: {
         TABLE_NAME: table.tableName
